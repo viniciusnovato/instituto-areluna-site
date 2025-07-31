@@ -5,7 +5,7 @@ const CorpoClinicoSection = () => {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
   const [emblaRef, emblaApi] = useEmblaCarousel({ 
     loop: true,
-    slidesToScroll: 2,
+    slidesToScroll: 1,
     breakpoints: {
       '(min-width: 768px)': { slidesToScroll: 2 },
       '(min-width: 1024px)': { slidesToScroll: 3 }
@@ -161,7 +161,7 @@ const CorpoClinicoSection = () => {
           <div className="embla overflow-hidden pb-4" ref={emblaRef}>
             <div className="embla__container flex">
                              {doctors.map((doctor, index) => (
-                 <div key={index} className="embla__slide flex-none w-1/2 sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 px-3">
+                 <div key={index} className="embla__slide flex-none w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 px-3">
                    <div 
                      className={`group relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden transform hover:-translate-y-3 h-full flex flex-col ${
                        hoveredCard === index ? 'scale-105' : ''

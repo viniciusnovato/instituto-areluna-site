@@ -4,14 +4,14 @@ const drMarcos = "https://res.cloudinary.com/dli5oe4qg/image/upload/v1753954125/
 const TrasplanteCapilarHeroSection = () => {
   return (
     <section 
-      className="h-screen bg-cover bg-no-repeat flex items-center justify-center relative" 
+      className="relative h-screen bg-cover bg-no-repeat flex items-center justify-center overflow-hidden" 
       style={{
         backgroundImage: `url(${drMarcos})`,
         backgroundPosition: 'center 20%'
       }}
     >
       <div 
-        className="absolute inset-0" 
+        className="absolute inset-0 w-full h-full" 
         style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}
       ></div>
 

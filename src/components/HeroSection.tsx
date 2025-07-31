@@ -3,13 +3,13 @@ import { Button } from "@/components/ui/button";
 const HeroSection = () => {
   return (
     <section 
-      className="h-screen bg-cover bg-center bg-no-repeat flex items-center justify-center" 
+      className="relative h-screen bg-cover bg-center bg-no-repeat flex items-center justify-center overflow-hidden" 
       style={{
         backgroundImage: "url('https://res.cloudinary.com/dli5oe4qg/image/upload/v1753954598/instituto-areluna/97a1febf-3c27-4a63-a583-b2522013f3f4.jpg')"
       }}
     >
       <div 
-        className="absolute inset-0" 
+        className="absolute inset-0 w-full h-full" 
         style={{ backgroundColor: 'rgba(0, 0, 0, 0.4)' }}
       ></div>
       

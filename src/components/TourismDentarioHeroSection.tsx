@@ -3,13 +3,13 @@ import { Button } from "@/components/ui/button";
 const TourismDentarioHeroSection = () => {
   return (
     <section 
-      className="h-screen bg-cover bg-center bg-no-repeat flex items-center justify-center relative" 
+      className="relative h-screen bg-cover bg-center bg-no-repeat flex items-center justify-center overflow-hidden" 
       style={{
         backgroundImage: "url('https://res.cloudinary.com/dli5oe4qg/image/upload/v1753954609/instituto-areluna/d84bc5ca-828d-4362-9806-cfa7f17440d9.jpg')"
       }}
     >
       <div 
-        className="absolute inset-0" 
+        className="absolute inset-0 w-full h-full" 
         style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}
       ></div>
 

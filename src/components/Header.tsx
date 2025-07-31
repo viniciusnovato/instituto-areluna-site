@@ -71,17 +71,27 @@ const Header = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="relative z-50 p-1.5 xs:p-2 rounded-lg bg-white/10 dark:bg-gray-800/60 backdrop-blur-sm border border-white/20 dark:border-gray-700/50 hover:bg-white/20 dark:hover:bg-gray-800/80 transition-all duration-300 min-w-[40px] min-h-[40px] flex items-center justify-center"
+            className={`relative z-50 p-1.5 xs:p-2 rounded-lg backdrop-blur-sm border transition-all duration-300 min-w-[40px] min-h-[40px] flex items-center justify-center ${
+              isScrolled 
+                ? 'bg-gray-800/80 border-gray-700/50 hover:bg-gray-800/90' 
+                : 'bg-white/10 border-white/20 hover:bg-white/20'
+            }`}
             aria-label="Toggle mobile menu"
           >
             <div className="w-5 xs:w-6 h-5 xs:h-6 flex flex-col justify-center items-center">
-              <span className={`block w-4 xs:w-5 h-0.5 bg-white transition-all duration-300 ${
+              <span className={`block w-4 xs:w-5 h-0.5 transition-all duration-300 ${
+                isScrolled ? 'bg-gray-800' : 'bg-white'
+              } ${
                 isMobileMenuOpen ? 'rotate-45 translate-y-0.5 xs:translate-y-1' : '-translate-y-0.5 xs:-translate-y-1'
               }`}></span>
-              <span className={`block w-4 xs:w-5 h-0.5 bg-white transition-all duration-300 ${
+              <span className={`block w-4 xs:w-5 h-0.5 transition-all duration-300 ${
+                isScrolled ? 'bg-gray-800' : 'bg-white'
+              } ${
                 isMobileMenuOpen ? 'opacity-0' : 'opacity-100'
               }`}></span>
-              <span className={`block w-4 xs:w-5 h-0.5 bg-white transition-all duration-300 ${
+              <span className={`block w-4 xs:w-5 h-0.5 transition-all duration-300 ${
+                isScrolled ? 'bg-gray-800' : 'bg-white'
+              } ${
                 isMobileMenuOpen ? '-rotate-45 -translate-y-0.5 xs:-translate-y-1' : 'translate-y-0.5 xs:translate-y-1'
               }`}></span>
             </div>
@@ -134,7 +144,7 @@ const Header = () => {
         </div>
 
         {/* Mobile Navigation Overlay */}
-        <div className={`lg:hidden fixed inset-0 top-0 bg-gradient-to-br from-white/98 via-gray-50/95 to-white/98 dark:from-gray-900/98 dark:via-gray-800/95 dark:to-gray-900/98 backdrop-blur-xl transition-all duration-700 ${
+        <div className={`lg:hidden fixed inset-0 top-0 bg-black/80 backdrop-blur-xl transition-all duration-700 ${
           isMobileMenuOpen 
             ? 'opacity-100 visible' 
             : 'opacity-0 invisible'
@@ -173,7 +183,7 @@ const Header = () => {
                     style={{animationDelay: `${index * 100}ms`}}
                   >
                     <div className="flex items-center justify-between">
-                      <span className="text-gray-900 dark:text-white font-light tracking-wider text-sm xs:text-base">
+                      <span className="text-white font-light tracking-wider text-sm xs:text-base">
                         {item.label}
                       </span>
                       <svg className="w-3.5 xs:w-4 h-3.5 xs:h-4 text-[hsl(var(--gold-leaf))]/60 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -193,7 +203,7 @@ const Header = () => {
                       onClick={() => handleMobileMenuClick(item.href)}
                       className="px-3 xs:px-4 py-2.5 xs:py-3 rounded-lg border border-[hsl(var(--gold-leaf))]/20 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm hover:bg-[hsl(var(--gold-leaf))]/10 transition-all duration-300 transform hover:scale-95"
                     >
-                      <span className="text-gray-800 dark:text-gray-200 font-light text-xs xs:text-sm tracking-wide">
+                      <span className="text-white font-light text-xs xs:text-sm tracking-wide">
                         {item.label}
                       </span>
                     </button>
@@ -217,7 +227,7 @@ const Header = () => {
                   CONSULTA GRATUITA
                 </button>
                 
-                <p className="text-xs text-gray-500 dark:text-gray-400 mt-2 xs:mt-3 font-light px-2">
+                <p className="text-xs text-white/70 mt-2 xs:mt-3 font-light px-2">
                   O principal destino para medicina dentária em Lisboa
                 </p>
               </div>

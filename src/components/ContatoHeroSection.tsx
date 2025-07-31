@@ -4,13 +4,13 @@ const heroWoman = "https://res.cloudinary.com/dli5oe4qg/image/upload/v1753954115
 const ContatoHeroSection = () => {
   return (
     <section 
-      className="h-screen bg-cover bg-center bg-no-repeat flex items-center justify-center relative" 
+      className="relative h-screen bg-cover bg-center bg-no-repeat flex items-center justify-center overflow-hidden" 
       style={{
         backgroundImage: `url(${heroWoman})`
       }}
     >
       <div 
-        className="absolute inset-0" 
+        className="absolute inset-0 w-full h-full" 
         style={{ backgroundColor: 'rgba(0, 0, 0, 0.6)' }}
       ></div>
       
