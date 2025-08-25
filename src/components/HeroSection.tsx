@@ -20,20 +20,16 @@ const HeroSection = () => {
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-vivant-skinny font-thin mb-6 leading-tight tracking-wider" style={{
         fontWeight: 200
       }}>
-          Um espaço projetado para<br className="hidden sm:block" />
-          <span className="sm:hidden"> </span>o seu bem-estar
+          O principal destino para medicina dentária e estética avançada em Portugal
         </h1>
         
         <p className="text-base sm:text-lg lg:text-xl mb-8 sm:mb-12 font-vivant opacity-90 max-w-2xl mx-auto">
-          O principal destino para medicina dentária e estética avançada em Lisboa.
+          Transforme seu sorriso com os melhores especialistas e tecnologia de ponta.
         </p>
         
-        <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
-          <Button variant="gold" size="lg" className="px-6 sm:px-8 py-3 sm:py-4 text-sm tracking-wider font-vivant-light min-h-[48px]">
-            CONSULTA GRATUITA
-          </Button>
+        <div className="flex justify-center">
           <Button variant="outline-gold" size="lg" className="px-6 sm:px-8 py-3 sm:py-4 text-sm tracking-wider font-vivant-light min-h-[48px]">
-            ENCONTRE SEU PROCEDIMENTO
+            ENCONTRE O SEU PROCEDIMENTO
           </Button>
         </div>
       </div>

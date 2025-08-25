@@ -27,12 +27,12 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				'vivant': ['Bw Vivant', 'sans-serif'],
-				'vivant-light': ['Bw Vivant Light', 'sans-serif'],
-				'vivant-medium': ['Bw Vivant Medium', 'sans-serif'],
-				'vivant-black': ['Bw Vivant Black', 'sans-serif'],
-				'vivant-skinny': ['Bw Vivant Skinny', 'sans-serif'],
-			},
+        'vivant': ['Bw Vivant Skinny', 'sans-serif'],
+        'vivant-light': ['Bw Vivant Skinny', 'sans-serif'],
+        'vivant-medium': ['Bw Vivant Skinny', 'sans-serif'],
+        'vivant-black': ['Bw Vivant Skinny', 'sans-serif'],
+        'vivant-skinny': ['Bw Vivant Skinny', 'sans-serif'],
+      },
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',

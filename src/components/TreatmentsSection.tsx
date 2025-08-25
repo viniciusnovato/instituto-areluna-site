@@ -2,81 +2,296 @@ import { useState } from "react";
 
 const TreatmentsSection = () => {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+  const [activeCategory, setActiveCategory] = useState("todos");
+
+  const categories = [
+    { id: "todos", name: "Todos", icon: "🦷" },
+    { id: "medicina-dentaria", name: "Medicina Dentária", icon: "🦷" },
+    { id: "harmonizacao-orofacial", name: "Harmonização Orofacial", icon: "💫" },
+    { id: "estetica-facial", name: "Estética Facial", icon: "✨" },
+    { id: "estetica-corporal", name: "Estética Corporal", icon: "💪" },
+    { id: "terapia-capilar", name: "Terapia Capilar", icon: "💇" },
+    { id: "transplante-capilar", name: "Transplante Capilar", icon: "🌱" },
+    { id: "nutricao", name: "Nutrição", icon: "🥗" },
+    { id: "endocrinologia", name: "Endocrinologia", icon: "⚕️" },
+    { id: "ansiedade", name: "Ansiedade Clínica", icon: "🧠" }
+  ];
 
   const treatments = [
+    // Medicina Dentária
     {
-      title: "Dentes Fixos em 1 Dia",
-      description: "Transformação completa do seu sorriso em apenas uma sessão",
-      image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=400&h=300&fit=crop&crop=center",
-      highlight: true
+      id: 1,
+      title: "Estética Dentária",
+      description: "Tratamentos estéticos avançados para transformação completa do sorriso.",
+      image: "https://res.cloudinary.com/dxm1cikvp/image/upload/v1735745234/estetica-dentaria_ggqhqz.jpg",
+      highlight: true,
+      duration: "2-4 sessões",
+      category: "medicina-dentaria",
+      features: ["Facetas", "Clareamento", "Restaurações", "Natural"]
     },
     {
-      title: "Implantes Dentários",
-      description: "Solução definitiva para substituição de dentes perdidos",
-      image: "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=400&h=300&fit=crop&crop=center",
-      highlight: false
+      id: 2,
+      title: "Alinhadores Invisíveis",
+      description: "Correção ortodôntica discreta com alinhadores transparentes removíveis.",
+      image: "https://res.cloudinary.com/dxm1cikvp/image/upload/v1735745234/alinhadores-invisiveis_ggqhqz.jpg",
+      highlight: false,
+      duration: "12-24 meses",
+      category: "medicina-dentaria",
+      features: ["Invisível", "Removível", "Confortável", "Previsível"]
     },
     {
-      title: "Alinhadores Invisíveis", 
-      description: "Correção ortodôntica discreta e confortável",
-      image: "https://images.unsplash.com/photo-1598300042247-d088f8c3a9ba?w=400&h=300&fit=crop&crop=center",
-      highlight: false
+      id: 3,
+      title: "Ortodontia Tradicional",
+      description: "Tratamento ortodôntico com brackets para correção de má oclusão.",
+      image: "https://res.cloudinary.com/dxm1cikvp/image/upload/v1735745234/ortodontia-tradicional_ggqhqz.jpg",
+      highlight: false,
+      duration: "18-36 meses",
+      category: "medicina-dentaria",
+      features: ["Eficaz", "Durável", "Preciso", "Económico"]
     },
     {
-      title: "Facetas Dentárias",
-      description: "Transformação estética para um sorriso perfeito",
-      image: "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=400&h=300&fit=crop&crop=center",
-      highlight: true
+      id: 4,
+      title: "Implantologia e Cirurgia Avançada",
+      description: "Implantes dentários e cirurgias orais com tecnologia de ponta.",
+      image: "https://res.cloudinary.com/dxm1cikvp/image/upload/v1735745234/implantologia_ggqhqz.jpg",
+      highlight: true,
+      duration: "3-6 meses",
+      category: "medicina-dentaria",
+      features: ["Carga imediata", "Biocompatível", "Duradouro", "Natural"]
     },
     {
-      title: "Coroas Cerâmicas",
-      description: "Restaurações de alta qualidade e durabilidade",
-      image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=400&h=300&fit=crop&crop=center",
-      highlight: false
-    },
-    {
-      title: "Branqueamento Dentário",
-      description: "Dentes mais brancos e brilhantes naturalmente",
-      image: "https://images.unsplash.com/photo-1606811955618-b2f7f6e28e50?w=400&h=300&fit=crop&crop=center",
-      highlight: false
-    },
-    {
-      title: "Aparelho Dentário",
-      description: "Ortodontia tradicional com resultados excepcionais",
-      image: "https://images.unsplash.com/photo-1599474924187-334a4ae5bd3c?w=400&h=300&fit=crop&crop=center",
-      highlight: false
-    },
-    {
-      title: "Dentisteria",
-      description: "Restaurações estéticas e funcionais personalizadas",
-      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop&crop=center",
-      highlight: false
-    },
-    {
+      id: 5,
       title: "Endodontia",
-      description: "Tratamentos de canal com técnicas avançadas",
-      image: "https://images.unsplash.com/photo-1588776814546-daab30f310ce?w=400&h=300&fit=crop&crop=center",
-      highlight: false
+      description: "Tratamento de canal radicular para preservação de dentes comprometidos.",
+      image: "https://res.cloudinary.com/dxm1cikvp/image/upload/v1735745234/endodontia_ggqhqz.jpg",
+      highlight: false,
+      duration: "1-3 sessões",
+      category: "medicina-dentaria",
+      features: ["Preserva dente", "Indolor", "Microscopia", "Sucesso"]
     },
     {
+      id: 6,
       title: "Periodontologia",
-      description: "Cuidados especializados para gengivas saudáveis",
-      image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=400&h=300&fit=crop&crop=center",
-      highlight: false
+      description: "Tratamento especializado das gengivas e estruturas de suporte.",
+      image: "https://res.cloudinary.com/dxm1cikvp/image/upload/v1735745234/periodontologia_ggqhqz.jpg",
+      highlight: false,
+      duration: "60-120 min",
+      category: "medicina-dentaria",
+      features: ["Laser", "Regeneração", "Prevenção", "Saúde"]
+    },
+    // Harmonização Orofacial Avançada
+    {
+      id: 7,
+      title: "Bioestimuladores de Colagénio",
+      description: "Sculptra e Radiesse para estimulação natural de colagénio facial.",
+      image: "https://res.cloudinary.com/dxm1cikvp/image/upload/v1735745234/bioestimuladores_ggqhqz.jpg",
+      highlight: true,
+      duration: "2-3 sessões",
+      category: "harmonizacao-orofacial",
+      features: ["Natural", "Duradouro", "Rejuvenesce", "Sculptra"]
     },
     {
-      title: "Higiene Oral",
-      description: "Limpezas profissionais para manter sua saúde bucal",
-      image: "https://images.unsplash.com/photo-1584308972272-9e4e7685e80f?w=400&h=300&fit=crop&crop=center",
-      highlight: false
+      id: 8,
+      title: "Lipoenzimática de Papada",
+      description: "Redução não cirúrgica da gordura localizada na região do queixo.",
+      image: "https://res.cloudinary.com/dxm1cikvp/image/upload/v1735745234/lipoenzima_ggqhqz.jpg",
+      highlight: false,
+      duration: "2-4 sessões",
+      category: "harmonizacao-orofacial",
+      features: ["Não invasivo", "Eficaz", "Contorno", "Definição"]
     },
     {
-      title: "Harmonização Facial",
-      description: "Tratamentos estéticos faciais para realçar sua beleza natural",
-      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop&crop=center",
-      highlight: true
+      id: 9,
+      title: "Fios de Sustentação Facial",
+      description: "Lifting facial não cirúrgico com fios absorvíveis para firmeza.",
+      image: "https://res.cloudinary.com/dxm1cikvp/image/upload/v1735745234/fios-sustentacao_ggqhqz.jpg",
+      highlight: false,
+      duration: "60-90 min",
+      category: "harmonizacao-orofacial",
+      features: ["Lifting", "Firmeza", "Natural", "Imediato"]
+    },
+    {
+      id: 10,
+      title: "Preenchimento de Olheiras",
+      description: "Correção de olheiras e sulcos com ácido hialurónico de alta qualidade.",
+      image: "https://res.cloudinary.com/dxm1cikvp/image/upload/v1735745234/preenchimento-olheiras_ggqhqz.jpg",
+      highlight: false,
+      duration: "30-45 min",
+      category: "harmonizacao-orofacial",
+      features: ["Rejuvenesce", "Natural", "Hidrata", "Suaviza"]
+    },
+    {
+      id: 11,
+      title: "Rinoplastia Não Cirúrgica",
+      description: "Correção do nariz com ácido hialurónico sem necessidade de cirurgia.",
+      image: "https://res.cloudinary.com/dxm1cikvp/image/upload/v1735745234/rinoplastia_ggqhqz.jpg",
+      highlight: true,
+      duration: "30-60 min",
+      category: "harmonizacao-orofacial",
+      features: ["Sem cirurgia", "Imediato", "Reversível", "Harmonia"]
+    },
+    // Estética Facial Médica
+    {
+      id: 12,
+      title: "Peelings Médicos",
+      description: "Peelings químicos e enzimáticos para renovação e rejuvenescimento.",
+      image: "https://res.cloudinary.com/dxm1cikvp/image/upload/v1735745234/peelings_ggqhqz.jpg",
+      highlight: false,
+      duration: "45-60 min",
+      category: "estetica-facial",
+      features: ["Renovação", "Textura", "Luminosidade", "Anti-idade"]
+    },
+    {
+      id: 13,
+      title: "Skinbooster e Mesoterapia",
+      description: "Hidratação profunda e revitalização da pele facial.",
+      image: "https://res.cloudinary.com/dxm1cikvp/image/upload/v1735745234/skinbooster_ggqhqz.jpg",
+      highlight: false,
+      duration: "30-45 min",
+      category: "estetica-facial",
+      features: ["Hidratação", "Luminosidade", "Firmeza", "Vitaminas"]
+    },
+    {
+      id: 14,
+      title: "Rejuvenescimento com PRP",
+      description: "Plasma Rico em Plaquetas para regeneração natural da pele.",
+      image: "https://res.cloudinary.com/dxm1cikvp/image/upload/v1735745234/prp-facial_ggqhqz.jpg",
+      highlight: true,
+      duration: "60-90 min",
+      category: "estetica-facial",
+      features: ["Natural", "Regeneração", "Colagénio", "Autólogo"]
+    },
+    {
+      id: 15,
+      title: "Microagulhamento",
+      description: "Estimulação de colagénio através de microlesões controladas.",
+      image: "https://res.cloudinary.com/dxm1cikvp/image/upload/v1735745234/microagulhamento_ggqhqz.jpg",
+      highlight: false,
+      duration: "45-60 min",
+      category: "estetica-facial",
+      features: ["Colagénio", "Textura", "Cicatrizes", "Firmeza"]
+    },
+    // Estética Corporal
+    {
+      id: 16,
+      title: "Radiofrequência Corporal",
+      description: "Tratamento para flacidez corporal com tecnologia de radiofrequência.",
+      image: "https://res.cloudinary.com/dxm1cikvp/image/upload/v1735745234/radiofrequencia_ggqhqz.jpg",
+      highlight: false,
+      duration: "60-90 min",
+      category: "estetica-corporal",
+      features: ["Firmeza", "Colagénio", "Contorno", "Não invasivo"]
+    },
+    {
+      id: 17,
+      title: "Mesoterapia Corporal",
+      description: "Tratamento para gordura localizada e celulite com microinjeções.",
+      image: "https://res.cloudinary.com/dxm1cikvp/image/upload/v1735745234/mesoterapia-corporal_ggqhqz.jpg",
+      highlight: false,
+      duration: "45-60 min",
+      category: "estetica-corporal",
+      features: ["Celulite", "Gordura", "Drenagem", "Modelagem"]
+    },
+    {
+      id: 18,
+      title: "Drenagem Linfática",
+      description: "Massagem especializada para recuperação pós-cirúrgica e bem-estar.",
+      image: "https://res.cloudinary.com/dxm1cikvp/image/upload/v1735745234/drenagem_ggqhqz.jpg",
+      highlight: false,
+      duration: "60-90 min",
+      category: "estetica-corporal",
+      features: ["Pós-cirúrgico", "Detox", "Relaxante", "Recuperação"]
+    },
+    // Terapia Capilar
+    {
+      id: 19,
+      title: "PRP Capilar",
+      description: "Plasma Rico em Plaquetas para estimular crescimento capilar.",
+      image: "https://res.cloudinary.com/dxm1cikvp/image/upload/v1735745234/prp-capilar_ggqhqz.jpg",
+      highlight: true,
+      duration: "60-90 min",
+      category: "terapia-capilar",
+      features: ["Crescimento", "Natural", "Densidade", "Regeneração"]
+    },
+    {
+      id: 20,
+      title: "Microinfusão Capilar (MMP)",
+      description: "Infusão de medicamentos diretamente no couro cabeludo.",
+      image: "https://res.cloudinary.com/dxm1cikvp/image/upload/v1735745234/microinfusao_ggqhqz.jpg",
+      highlight: false,
+      duration: "30-45 min",
+      category: "terapia-capilar",
+      features: ["Medicamentos", "Precisão", "Eficácia", "Direcionado"]
+    },
+    {
+      id: 21,
+      title: "Mesoterapia Capilar",
+      description: "Aplicação de vitaminas e nutrientes para fortalecimento capilar.",
+      image: "https://res.cloudinary.com/dxm1cikvp/image/upload/v1735745234/mesoterapia-capilar_ggqhqz.jpg",
+      highlight: false,
+      duration: "30-45 min",
+      category: "terapia-capilar",
+      features: ["Vitaminas", "Fortalece", "Nutrição", "Vitalidade"]
+    },
+    // Transplante Capilar
+    {
+      id: 22,
+      title: "Transplante FUE",
+      description: "Técnica FUE sem cortes visíveis para transplante capilar natural.",
+      image: "https://res.cloudinary.com/dxm1cikvp/image/upload/v1735745234/transplante-fue_ggqhqz.jpg",
+      highlight: true,
+      duration: "6-8 horas",
+      category: "transplante-capilar",
+      features: ["Sem cicatrizes", "Natural", "Permanente", "Tecnologia"]
+    },
+    {
+      id: 23,
+      title: "Avaliação com Dermatoscopia",
+      description: "Análise digital avançada do couro cabeludo antes do transplante.",
+      image: "https://res.cloudinary.com/dxm1cikvp/image/upload/v1735745234/dermatoscopia_ggqhqz.jpg",
+      highlight: false,
+      duration: "45-60 min",
+      category: "transplante-capilar",
+      features: ["Digital", "Precisão", "Planeamento", "Análise"]
+    },
+    // Nutrição Clínica
+    {
+      id: 24,
+      title: "Nutrição Anti-inflamatória",
+      description: "Planos nutricionais para combater inflamação e otimizar saúde.",
+      image: "https://res.cloudinary.com/dxm1cikvp/image/upload/v1735745234/nutricao_ggqhqz.jpg",
+      highlight: false,
+      duration: "60-90 min",
+      category: "nutricao",
+      features: ["Anti-inflamatória", "Personalizada", "Saúde", "Bem-estar"]
+    },
+    // Endocrinologia
+    {
+      id: 25,
+      title: "Avaliação Hormonal",
+      description: "Análise completa do perfil hormonal para adultos e jovens.",
+      image: "https://res.cloudinary.com/dxm1cikvp/image/upload/v1735745234/endocrinologia_ggqhqz.jpg",
+      highlight: false,
+      duration: "60-90 min",
+      category: "endocrinologia",
+      features: ["Hormonal", "Completa", "Metabólica", "Personalizada"]
+    },
+    // Ansiedade Clínica
+    {
+      id: 26,
+      title: "Apoio para Ansiedade Dentária",
+      description: "Suporte especializado para pacientes com medo ou trauma dentário.",
+      image: "https://res.cloudinary.com/dxm1cikvp/image/upload/v1735745234/ansiedade_ggqhqz.jpg",
+      highlight: false,
+      duration: "45-60 min",
+      category: "ansiedade",
+      features: ["Apoio", "Conforto", "Segurança", "Especializado"]
     }
   ];
+
+  const filteredTreatments = activeCategory === "todos" 
+    ? treatments 
+    : treatments.filter(treatment => treatment.category === activeCategory);
 
   return (
     <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-white via-gray-50/30 to-white dark:bg-gray-100 relative overflow-hidden">
@@ -107,85 +322,83 @@ const TreatmentsSection = () => {
               O Poder de um Sorriso
             </h3>
             <p className="text-base sm:text-lg text-jet/70 dark:text-gray-700 font-vivant-light leading-relaxed">
-              Oferecemos uma gama completa de tratamentos odontológicos com as mais avançadas técnicas e tecnologias, 
-              sempre priorizando seu conforto e os melhores resultados estéticos e funcionais.
+              Aqui, tratamos sorrisos como extensão da identidade de cada paciente.
+              <br /><br />
+              Unimos tecnologia de ponta, cuidado multidisciplinar e sensibilidade estética para transformar não apenas o sorriso — mas também a forma como você se vê e se sente.
+              <br /><br />
+              Tudo com conforto, precisão e a excelência que faz do Instituto Areluna uma referência em reabilitação oral.
             </p>
           </div>
         </div>
 
-        {/* Grid de tratamentos */}
-        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-          {treatments.map((treatment, index) => (
-            <div
-              key={index}
-              className={`group relative bg-white/70 dark:bg-gray-800/90 backdrop-blur-sm rounded-3xl transition-all duration-700 overflow-hidden transform hover:-translate-y-6 border border-[hsl(var(--gold-leaf))]/10 dark:border-[hsl(var(--gold-leaf))]/30 hover:border-[hsl(var(--gold-leaf))]/20 dark:hover:border-[hsl(var(--gold-leaf))]/50 ${
-                treatment.highlight ? 'ring-1 ring-[hsl(var(--gold-leaf))]/30 dark:ring-[hsl(var(--gold-leaf))]/50 bg-gradient-to-br from-white/80 to-[hsl(var(--gold-leaf))]/5 dark:from-gray-800/95 dark:to-[hsl(var(--gold-leaf))]/10' : ''
-              } ${hoveredCard === index ? 'scale-[1.02]' : ''} before:absolute before:inset-0 before:rounded-3xl before:bg-gradient-to-br before:from-white/20 before:via-transparent before:to-[hsl(var(--gold-leaf))]/10 dark:before:from-gray-700/30 dark:before:to-[hsl(var(--gold-leaf))]/20 before:opacity-0 group-hover:before:opacity-100 before:transition-opacity before:duration-500`}
-              onMouseEnter={() => setHoveredCard(index)}
-              onMouseLeave={() => setHoveredCard(null)}
+        {/* Categories Filter */}
+        <div className="flex flex-wrap justify-center gap-3 mb-12">
+          {categories.map((category) => (
+            <button
+              key={category.id}
+              onClick={() => setActiveCategory(category.id)}
+              className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 flex items-center gap-2 ${
+                 activeCategory === category.id
+                   ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg transform scale-105'
+                   : 'bg-white text-gray-600 hover:bg-gray-50 border border-gray-200 hover:border-blue-300'
+               }`}
             >
-              {/* Shimmer effect */}
-              <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent transform rotate-12"></div>
-              
-              {/* Badge de destaque premium */}
-              {treatment.highlight && (
-                <div className="absolute top-4 right-4 z-20">
-                  <div className="relative bg-gradient-to-br from-[hsl(var(--gold-leaf))] via-amber-400 to-yellow-500 text-white px-4 py-2 rounded-2xl">
-                    <span className="text-xs font-semibold tracking-wide">PREMIUM</span>
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-2xl"></div>
-                  </div>
-                </div>
-              )}
-
-              {/* Imagem do tratamento com overlay premium */}
-              <div className="relative overflow-hidden h-56 rounded-t-3xl">
-                <img 
-                  src={treatment.image} 
-                  alt={treatment.title}
-                  className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
-                
-                {/* Borda dourada sutil na imagem */}
-                <div className="absolute inset-0 border-2 border-transparent group-hover:border-[hsl(var(--gold-leaf))]/30 transition-all duration-500 rounded-t-3xl"></div>
-                
-                {/* Elemento decorativo flutuante */}
-                <div className="absolute top-4 left-4 w-3 h-3 bg-[hsl(var(--gold-leaf))] rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0"></div>
-              </div>
-
-              {/* Container do conteúdo premium */}
-              <div className="relative p-8 z-10">
-                {/* Ornamento decorativo */}
-                <div className="absolute -top-3 left-8 w-12 h-0.5 bg-gradient-to-r from-[hsl(var(--gold-leaf))] to-amber-400 rounded-full"></div>
-                
-                {/* Título premium */}
-                <h4 className="font-vivant text-jet dark:text-white text-xl lg:text-2xl mb-4 group-hover:text-[hsl(var(--gold-leaf))] transition-all duration-500 transform group-hover:translate-x-1">
-                  {treatment.title}
-                </h4>
-
-                {/* Descrição refinada */}
-                <p className="text-jet/75 dark:text-gray-300 font-vivant-light text-sm lg:text-base leading-relaxed mb-6 group-hover:text-jet/90 dark:group-hover:text-gray-100 transition-colors duration-300">
-                  {treatment.description}
-                </p>
-
-                {/* Linha decorativa animada */}
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[hsl(var(--gold-leaf))]/20 to-amber-400/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-x-2 group-hover:translate-x-0">
-                    <div className="w-2 h-2 bg-[hsl(var(--gold-leaf))] rounded-full"></div>
-                  </div>
-                  <div className="flex-1 h-px bg-gradient-to-r from-[hsl(var(--gold-leaf))]/40 via-[hsl(var(--gold-leaf))]/20 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left"></div>
-                </div>
-              </div>
-
-              {/* Borda dourada animada */}
-              <div className="absolute inset-0 rounded-3xl border border-transparent group-hover:border-[hsl(var(--gold-leaf))]/20 transition-all duration-500"></div>
-
-              {/* Glow effect premium */}
-              <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-gradient-to-br from-[hsl(var(--gold-leaf))]/5 via-transparent to-amber-400/5"></div>
-              
-              {/* Shadow interno premium removido */}
-            </div>
+              <span>{category.icon}</span>
+              {category.name}
+            </button>
           ))}
+        </div>
+
+        {/* Grid de tratamentos - Layout Wireframe */}
+        <div className="bg-white dark:bg-gray-50 rounded-3xl p-8 shadow-lg border border-gray-100 dark:border-gray-200">
+          {/* Header do tratamento ideal */}
+          <div className="text-center mb-8">
+            <div className="inline-block bg-jet dark:bg-gray-800 text-white px-6 py-3 rounded-lg text-sm font-medium mb-6">
+              DESCUBRA O TRATAMENTO IDEAL PARA VOCÊ
+            </div>
+          </div>
+
+          {/* Grid principal de tratamentos */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filteredTreatments.slice(0, 9).map((treatment, index) => (
+              <div
+                key={index}
+                className="group bg-gray-50 dark:bg-white rounded-2xl p-6 hover:bg-gray-100 dark:hover:bg-gray-50 transition-all duration-300 cursor-pointer border border-gray-200 dark:border-gray-300 hover:border-[hsl(var(--gold-leaf))]/30 hover:shadow-md"
+                onMouseEnter={() => setHoveredCard(index)}
+                onMouseLeave={() => setHoveredCard(null)}
+              >
+                <div className="flex items-center justify-between">
+                  <div className="flex-1">
+                    <h4 className="font-vivant text-jet dark:text-gray-800 text-lg mb-2 group-hover:text-[hsl(var(--gold-leaf))] transition-colors duration-300">
+                      {treatment.title}
+                    </h4>
+                    <p className="text-gray-600 dark:text-gray-700 text-sm leading-relaxed">
+                      {treatment.description.length > 80 ? treatment.description.substring(0, 80) + '...' : treatment.description}
+                    </p>
+                  </div>
+                  <div className="ml-4 opacity-60 group-hover:opacity-100 transition-opacity duration-300">
+                    <svg className="w-6 h-6 text-[hsl(var(--gold-leaf))]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Nota sobre inserção de tratamentos */}
+          {filteredTreatments.length > 9 && (
+            <div className="mt-8 p-6 bg-gradient-to-r from-orange-50 to-red-50 dark:from-orange-100 dark:to-red-100 rounded-2xl border border-orange-200 dark:border-orange-300">
+              <p className="text-orange-800 dark:text-orange-900 text-sm font-medium text-center">
+                Possibilidade de inserir os tratamentos dessa maneira – para evitar poluição visual pela alta quantidade.
+              </p>
+              <div className="mt-4 text-center">
+                <button className="text-[hsl(var(--gold-leaf))] hover:text-amber-600 text-sm font-medium transition-colors duration-300">
+                  Ver todos os {filteredTreatments.length} tratamentos →
+                </button>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Call to Action Premium */}

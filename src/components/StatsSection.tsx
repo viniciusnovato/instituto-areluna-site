@@ -36,7 +36,7 @@ const StatsSection = () => {
           </h2>
           <div className="w-24 h-1 bg-white mx-auto mb-6 rounded-full"></div>
           <p className="text-lg text-white/90 max-w-2xl mx-auto font-vivant-light">
-            Números que refletem nossa dedicação em oferecer o melhor cuidado odontológico
+            Números que refletem nossa dedicação em oferecer o melhor cuidado dentário
           </p>
         </div>
 

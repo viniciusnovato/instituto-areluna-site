@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-// const treatment2 = ""; // Arquivo não encontrado - precisa ser carregado
 
 const ContactSection = () => {
   return (
@@ -10,10 +9,10 @@ const ContactSection = () => {
           <div className="flex items-center justify-center p-12 lg:p-20">
             <div className="max-w-lg space-y-8">
               <div className="space-y-4">
-                <h3 className="text-sm font-light tracking-widest uppercase text-battleship">
+                <h3 className="text-sm font-vivant-light tracking-widest uppercase text-battleship">
                   CONTATO
                 </h3>
-                <h2 className="text-4xl lg:text-5xl font-light text-jet leading-tight">
+                <h2 className="text-4xl lg:text-5xl font-vivant-light text-jet leading-tight">
                   AGENDE SUA<br />
                   CONSULTA
                 </h2>
@@ -49,11 +48,11 @@ const ContactSection = () => {
           
           {/* Right side - Image */}
           <div className="relative">
-            <img 
-              src={treatment2} 
-              alt="Contato Areluna"
-              className="w-full h-full object-cover"
-            />
+            <div className="w-full h-full bg-gradient-to-br from-gold-leaf/20 to-battleship/20 flex items-center justify-center">
+              <div className="text-center text-battleship/60">
+                <p className="text-lg font-vivant-light">Imagem de Contato</p>
+              </div>
+            </div>
             <div className="absolute inset-0 bg-jet/10"></div>
           </div>
         </div>

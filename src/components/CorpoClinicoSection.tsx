@@ -22,100 +22,52 @@ const CorpoClinicoSection = () => {
 
   const doctors = [
     {
-      name: "Dra. Romana Novais",
-      crm: "CRM-SP 203467-SP",
-      specialty: "Ortodontia",
+      name: "Dra. Carla Salvi",
+      crm: "CRM (a definir)",
+      specialty: "Dentista",
       image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=500&fit=crop&crop=face"
     },
     {
-      name: "Dra. Gertisa Brandão", 
-      crm: "CRM-SP 224866",
-      specialty: "Implantodontia",
+      name: "Dra. Aline Marodim", 
+      crm: "CRM 00000",
+      specialty: "Dentista",
       image: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=400&h=500&fit=crop&crop=face"
     },
     {
-      name: "Dra. Debora Maranhão",
-      crm: "CRM 184349-SP | RQE 86316", 
-      specialty: "Periodontia",
+      name: "Dr. Leonardo Saraiva",
+      crm: "CRM 00000", 
+      specialty: "Dentista",
       image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=500&fit=crop&crop=face"
     },
     {
-      name: "Dra. Ingrid Lins",
-      crm: "CRMRN: 10090",
-      specialty: "Endodontia",
+      name: "Dra. Arethuza Luna",
+      crm: "CRM 00000",
+      specialty: "Dentista",
       image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=500&fit=crop&crop=face"
     },
     {
-      name: "Dr. Luiz Gustavo",
-      crm: "CRM-SP 137722 | RQE 49410",
-      specialty: "Cirurgia Oral",
+      name: "Dra. Patricia Tatsch",
+      crm: "CRM 00000",
+      specialty: "Dentista",
       image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=500&fit=crop&crop=face"
     },
     {
-      name: "Dra. Larissa Crestani",
-      crm: "CRM 169664-SP | RQE 85790",
-      specialty: "Estética Dental",
+      name: "Dra. Ana Vitória",
+      crm: "CRM 00000",
+      specialty: "Dentista",
       image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=500&fit=crop&crop=face"
     },
     {
-      name: "Dr. Carlos Eduardo",
-      crm: "CRM-SP 145892-SP",
-      specialty: "Prótese Dentária",
+      name: "Dra. Daiane",
+      crm: "CRM 00000",
+      specialty: "Dentista",
       image: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=400&h=500&fit=crop&crop=face"
     },
     {
-      name: "Dra. Marina Santos",
-      crm: "CRM-SP 198765-SP",
-      specialty: "Odontopediatria",
+      name: "Dra. Sara Ribeiro",
+      crm: "CRM 0000",
+      specialty: "Dentista",
       image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=500&fit=crop&crop=face"
-    },
-    {
-      name: "Dr. Roberto Silva",
-      crm: "CRM-SP 167432-SP | RQE 78945",
-      specialty: "Radiologia Oral",
-      image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=500&fit=crop&crop=face"
-    },
-    {
-      name: "Dra. Patricia Lima",
-      crm: "CRM-SP 189234-SP",
-      specialty: "Harmonização Facial",
-      image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=500&fit=crop&crop=face"
-    },
-    {
-      name: "Dr. Fernando Costa",
-      crm: "CRM-SP 156789-SP | RQE 89012",
-      specialty: "Dentística",
-      image: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=400&h=500&fit=crop&crop=face"
-    },
-    {
-      name: "Dra. Juliana Pereira",
-      crm: "CRM-SP 178901-SP",
-      specialty: "Ortodontia",
-      image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=500&fit=crop&crop=face"
-    },
-    {
-      name: "Dr. Rafael Oliveira",
-      crm: "CRM-SP 134567-SP | RQE 67890",
-      specialty: "Cirurgia Bucomaxilofacial",
-      image: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=400&h=500&fit=crop&crop=face"
-    },
-    {
-      name: "Dra. Camila Rodrigues",
-      crm: "CRM-SP 165432-SP",
-      specialty: "Periodontia",
-      image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=500&fit=crop&crop=face"
-    },
-    {
-      name: "Dr. André Martins",
-      crm: "CRM-SP 187654-SP | RQE 54321",
-      specialty: "Implantodontia",
-      image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=500&fit=crop&crop=face"
-    },
-    {
-      name: "Dra. Beatriz Almeida",
-      crm: "CRM-SP 176543-SP",
-      specialty: "Endodontia",
-      image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=500&fit=crop&crop=face"
     }
   ];
 
@@ -132,7 +84,7 @@ const CorpoClinicoSection = () => {
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-gold to-amber-400 mx-auto mb-6 rounded-full"></div>
           <p className="text-lg text-jet/70 dark:text-gray-300 max-w-2xl mx-auto font-vivant-light">
-            Nossa equipe de especialistas está comprometida em oferecer o melhor cuidado odontológico com excelência e dedicação.
+            Nossa equipa de médicos especialistas está comprometida em oferecer o melhor cuidado com excelência e dedicação no padrão IAL
           </p>
         </div>
         

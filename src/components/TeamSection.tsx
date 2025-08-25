@@ -22,7 +22,7 @@ const TeamSection = () => {
     <section id="equipe" className="py-24 bg-pure-white">
       <div className="container mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-jet mb-6">
+          <h2 className="text-4xl lg:text-5xl font-vivant text-jet mb-6">
             Nossa <span className="text-gold-leaf">Equipe</span>
           </h2>
           <p className="text-xl text-battleship leading-relaxed">
@@ -52,7 +52,7 @@ const TeamSection = () => {
 
                 <div className="flex-1 text-center lg:text-left space-y-4">
                   <div>
-                    <h3 className="text-2xl font-bold text-jet group-hover:text-gold-leaf transition-colors">
+                    <h3 className="text-2xl font-vivant text-jet group-hover:text-gold-leaf transition-colors">
                       {member.name}
                     </h3>
                     <p className="text-gold-leaf font-medium">{member.specialty}</p>
@@ -78,7 +78,7 @@ const TeamSection = () => {
 
         <div className="text-center mt-16">
           <div className="bg-gradient-dark text-pure-white p-8 rounded-2xl shadow-elegant max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold mb-4">
+            <h3 className="text-2xl font-vivant mb-4">
               Quer conhecer nossa equipe pessoalmente?
             </h3>
             <p className="text-battleship mb-6">
