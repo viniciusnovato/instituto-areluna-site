@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 
 const TreatmentsSection = () => {
+  const location = useLocation();
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
   const [activeCategory, setActiveCategory] = useState("todos");
 
@@ -353,7 +355,7 @@ const TreatmentsSection = () => {
         <div className="bg-white dark:bg-gray-50 rounded-3xl p-8 shadow-lg border border-gray-100 dark:border-gray-200">
           {/* Header do tratamento ideal */}
           <div className="text-center mb-8">
-            <div className="inline-block bg-jet dark:bg-gray-800 text-white px-6 py-3 rounded-lg text-sm font-medium mb-6">
+            <div className="inline-block bg-[hsl(var(--gold-leaf))] dark:bg-[hsl(var(--gold-leaf))] text-white px-6 py-3 rounded-lg text-sm font-medium mb-6">
               DESCUBRA O TRATAMENTO IDEAL PARA VOCÊ
             </div>
           </div>
@@ -387,15 +389,12 @@ const TreatmentsSection = () => {
           </div>
 
           {/* Nota sobre inserção de tratamentos */}
-          {filteredTreatments.length > 9 && (
+          {filteredTreatments.length > 9 && location.pathname !== '/tratamentos' && (
             <div className="mt-8 p-6 bg-gradient-to-r from-orange-50 to-red-50 dark:from-orange-100 dark:to-red-100 rounded-2xl border border-orange-200 dark:border-orange-300">
-              <p className="text-orange-800 dark:text-orange-900 text-sm font-medium text-center">
-                Possibilidade de inserir os tratamentos dessa maneira – para evitar poluição visual pela alta quantidade.
-              </p>
-              <div className="mt-4 text-center">
-                <button className="text-[hsl(var(--gold-leaf))] hover:text-amber-600 text-sm font-medium transition-colors duration-300">
+              <div className="text-center">
+                <a href="/tratamentos" className="text-[hsl(var(--gold-leaf))] hover:text-amber-600 text-sm font-medium transition-colors duration-300">
                   Ver todos os {filteredTreatments.length} tratamentos →
-                </button>
+                </a>
               </div>
             </div>
           )}

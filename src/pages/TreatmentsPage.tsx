@@ -1,6 +1,6 @@
 import Header from "@/components/Header";
 import TreatmentsHeroSection from "@/components/TreatmentsHeroSection";
-import TreatmentDetailsSection from "@/components/TreatmentDetailsSection";
+import TreatmentsSection from "@/components/TreatmentsSection";
 import BeforeAfterSection from "@/components/BeforeAfterSection";
 import TreatmentsFAQSection from "@/components/TreatmentsFAQSection";
 import ContactFormSection from "@/components/ContactFormSection";
@@ -12,7 +12,7 @@ const TreatmentsPage = () => {
     <div className="min-h-screen">
       <Header />
       <TreatmentsHeroSection />
-      <TreatmentDetailsSection />
+      <TreatmentsSection />
       <BeforeAfterSection />
       <TreatmentsFAQSection />
       <ContactFormSection />

@@ -26,6 +26,33 @@ const BeforeAfterSection = () => {
     }
   ];
 
+  const facetsCases = [
+    {
+      id: 1,
+      image: "https://res.cloudinary.com/dli5oe4qg/image/upload/v1756465124/Caso_18_qcqzkb.png",
+      title: "Sorriso Harmonioso",
+      description: "Facetas de porcelana para correção estética",
+      duration: "2 semanas",
+      treatment: "Facetas de Porcelana"
+    },
+    {
+      id: 2,
+      image: "https://res.cloudinary.com/dli5oe4qg/image/upload/v1756465123/Caso_13_yqtm3a.png",
+      title: "Perfeição Natural",
+      description: "Facetas ultrafinas para resultado natural",
+      duration: "3 semanas",
+      treatment: "Facetas Ultrafinas"
+    },
+    {
+      id: 3,
+      image: "https://res.cloudinary.com/dli5oe4qg/image/upload/v1756465119/caso_27_mfkoht.png",
+      title: "Elegância Refinada",
+      description: "Facetas personalizadas para sorriso perfeito",
+      duration: "2 semanas",
+      treatment: "Facetas Personalizadas"
+    }
+  ];
+
   return (
     <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-white to-gray-50/50 dark:from-gray-900 dark:to-gray-800 relative overflow-hidden">
       {/* Background decorativo */}
@@ -61,7 +88,7 @@ const BeforeAfterSection = () => {
           </div>
 
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-vivant text-jet dark:text-gray-200 mb-6 drop-shadow-sm">
-            Antes & Depois
+            Galeria de Sorrisos
           </h2>
           
           <div className="w-32 h-1 bg-gradient-to-r from-[hsl(var(--gold-leaf))] to-amber-400 mx-auto mb-6 sm:mb-8 rounded-full"></div>
@@ -77,9 +104,107 @@ const BeforeAfterSection = () => {
           </div>
         </div>
 
-        {/* Grid de casos */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
+        {/* Subtítulo para Implantes */}
+        <div className="text-center mb-12">
+          <h4 className="text-2xl sm:text-3xl font-vivant text-[hsl(var(--gold-leaf))] dark:text-[hsl(var(--gold-leaf))]/80 mb-2">
+            Implantes e Reabilitação
+          </h4>
+          <div className="w-24 h-px bg-gradient-to-r from-[hsl(var(--gold-leaf))] to-amber-400 mx-auto rounded-full"></div>
+        </div>
+
+        {/* Grid de casos - Implantes */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-20">
           {cases.map((caseItem, index) => (
+            <div key={caseItem.id} className="group">
+              <div className="relative bg-white/10 dark:bg-white/5 backdrop-blur-xl rounded-3xl p-6 border border-white/20 dark:border-white/10 hover:bg-white/15 dark:hover:bg-white/8 transition-all duration-500 hover:-translate-y-2 group-hover:backdrop-blur-2xl overflow-hidden">
+                {/* Liquid glass effect overlay */}
+                <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-white/10 to-transparent dark:from-white/20 dark:via-white/5 dark:to-transparent rounded-3xl"></div>
+                
+                {/* Glass reflection effect */}
+                <div className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-white/40 to-transparent dark:from-white/20 dark:to-transparent rounded-t-3xl opacity-60"></div>
+                
+                {/* Content wrapper */}
+                <div className="relative z-10">
+                                 {/* Imagem antes/depois */}
+                 <div className="relative overflow-hidden rounded-2xl shadow-xl mb-6">
+                   <div className="aspect-[4/5]">
+                     <img 
+                       src={caseItem.image} 
+                       alt={`${caseItem.title} - Antes e Depois`}
+                       className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
+                     />
+                   </div>
+                  
+                  {/* Badge do caso */}
+                  <div className="absolute top-4 left-4 bg-gradient-to-r from-[hsl(var(--gold-leaf))]/90 dark:from-[hsl(var(--gold-leaf))]/70 to-amber-400/90 dark:to-amber-400/70 text-white px-4 py-2 rounded-xl shadow-lg dark:shadow-none">
+                    <span className="font-vivant font-medium text-xs tracking-wide">CASO {index + 1}</span>
+                  </div>
+                  
+                  {/* Overlay de hover */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--gold-leaf))]/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+
+                {/* Informações do caso */}
+                <div className="text-center space-y-4">
+                  <h4 className="text-xl font-vivant text-gray-800 dark:text-gray-100 group-hover:text-[hsl(var(--gold-leaf))] transition-colors duration-300 drop-shadow-sm">
+                    {caseItem.title}
+                  </h4>
+                  <p className="text-sm text-gray-700 dark:text-gray-300 font-vivant-light leading-relaxed">
+                    {caseItem.description}
+                  </p>
+                  
+                  {/* Detalhes do tratamento */}
+                  <div className="grid grid-cols-2 gap-3">
+                    <div className="relative bg-white/20 dark:bg-white/10 backdrop-blur-sm rounded-xl p-3 border border-white/30 dark:border-white/20 overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent dark:from-white/10 dark:to-transparent"></div>
+                      <div className="relative z-10">
+                        <div className="w-6 h-6 bg-[hsl(var(--gold-leaf))]/90 dark:bg-[hsl(var(--gold-leaf))]/70 rounded-full flex items-center justify-center mx-auto mb-2">
+                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                        </div>
+                        <h5 className="font-vivant text-[hsl(var(--gold-leaf))] dark:text-[hsl(var(--gold-leaf))]/80 font-medium text-xs mb-1">Duração</h5>
+                        <p className="text-xs text-gray-700 dark:text-gray-300">{caseItem.duration}</p>
+                      </div>
+                    </div>
+                    
+                    <div className="relative bg-white/20 dark:bg-white/10 backdrop-blur-sm rounded-xl p-3 border border-white/30 dark:border-white/20 overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent dark:from-white/10 dark:to-transparent"></div>
+                      <div className="relative z-10">
+                        <div className="w-6 h-6 bg-[hsl(var(--gold-leaf))]/90 dark:bg-[hsl(var(--gold-leaf))]/70 rounded-full flex items-center justify-center mx-auto mb-2">
+                          <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                          </svg>
+                        </div>
+                        <h5 className="font-vivant text-[hsl(var(--gold-leaf))] dark:text-[hsl(var(--gold-leaf))]/80 font-medium text-xs mb-1">Tratamento</h5>
+                        <p className="text-xs text-gray-700 dark:text-gray-300">{caseItem.treatment}</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Linha decorativa */}
+                  <div className="w-16 h-px bg-gradient-to-r from-[hsl(var(--gold-leaf))] to-amber-400 mx-auto rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                </div>
+                </div>
+                
+                {/* Liquid glass border glow */}
+                <div className="absolute inset-0 rounded-3xl border border-[hsl(var(--gold-leaf))]/20 dark:border-[hsl(var(--gold-leaf))]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Subtítulo para Facetas */}
+        <div className="text-center mb-12">
+          <h4 className="text-2xl sm:text-3xl font-vivant text-[hsl(var(--gold-leaf))] dark:text-[hsl(var(--gold-leaf))]/80 mb-2">
+            Facetas de Porcelana
+          </h4>
+          <div className="w-24 h-px bg-gradient-to-r from-[hsl(var(--gold-leaf))] to-amber-400 mx-auto rounded-full"></div>
+        </div>
+
+        {/* Grid de casos - Facetas */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
+          {facetsCases.map((caseItem, index) => (
             <div key={caseItem.id} className="group">
               <div className="relative bg-white/10 dark:bg-white/5 backdrop-blur-xl rounded-3xl p-6 border border-white/20 dark:border-white/10 hover:bg-white/15 dark:hover:bg-white/8 transition-all duration-500 hover:-translate-y-2 group-hover:backdrop-blur-2xl overflow-hidden">
                 {/* Liquid glass effect overlay */}
@@ -185,4 +310,4 @@ const BeforeAfterSection = () => {
   );
 };
 
-export default BeforeAfterSection; 
+export default BeforeAfterSection;
